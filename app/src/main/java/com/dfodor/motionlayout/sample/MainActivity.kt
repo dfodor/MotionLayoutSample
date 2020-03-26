@@ -18,10 +18,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val items = listOf(
-            MovieItem("Parasite", "Comedy, Drama, Thriller ", R.drawable.parasite),
-            MovieItem("Asdf", "Comedy, Thriller ", R.drawable._1917),
-            MovieItem("Badlfqg", "Comedy, Drama ", R.drawable.run),
-            MovieItem("wfwwfw", "Drama, Thriller ", R.drawable.parasite)
+            MovieItem("Run", "Comedy, Drama, Thriller ", R.drawable.run),
+            MovieItem("1917", "Comedy, Thriller ", R.drawable._1917),
+            MovieItem("Parasite", "Comedy, Drama ", R.drawable.parasite),
+            MovieItem("Run", "Drama, Thriller ", R.drawable.run)
         )
 
         recyclerView.adapter = MoviesAdapter(items) { view, movieItem ->
