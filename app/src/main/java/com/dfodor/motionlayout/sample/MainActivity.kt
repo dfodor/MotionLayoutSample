@@ -13,8 +13,6 @@ import kotlinx.android.synthetic.main.animated_movie_item.view.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var anchorView: View
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -32,10 +30,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun animate(view: View, movieItem: MovieItem) {
-        anchorView = view
-
-        val set = animated_movie_item.getConstraintSet(R.id.start)
-        set.setMargin(animated_movie_item.thumbnail.id, ConstraintSet.TOP, view.y.toInt())
+        val set = animated_movie_item.getConstraintSet(R.id.start_animated)
+        set.setMargin(R.id.thumbnail, ConstraintSet.TOP, view.y.toInt())
+        set.setVisibility(R.id.thumbnail, ConstraintSet.VISIBLE)
         set.applyTo(animated_movie_item)
 
         animated_movie_item.thumbnail.background =
@@ -46,14 +43,21 @@ class MainActivity : AppCompatActivity() {
 
             animated_movie_item.setTransitionListener(object : TransitionAdapter() {
                 override fun onTransitionChange(
-                    motionLayout: MotionLayout?,
+                    motionLayout: MotionLayout,
                     startId: Int,
                     endId: Int,
                     progress: Float
                 ) {
-                    if (progress < 0.1f && startId == R.id.start && !started) {
+                    if (progress < 0.1f && startId == R.id.start_animated && !started) {
                         started = true
                         activity_root.transitionToStart()
+                    }
+
+                    if (progress == 0f && startId == R.id.start_animated) {
+                        val constraintSet =
+                            animated_movie_item.getConstraintSet(R.id.start_animated)
+                        constraintSet.setVisibility(R.id.thumbnail, ConstraintSet.GONE)
+                        constraintSet.applyTo(animated_movie_item)
                     }
                 }
             })
