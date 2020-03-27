@@ -10,7 +10,6 @@ import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.animated_movie_item.*
 import kotlinx.android.synthetic.main.animated_movie_item.view.*
-import kotlinx.android.synthetic.main.movie_item.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,11 +17,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val lorem =
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor" +
+                    " incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud" +
+                    " exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute " +
+                    "irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla" +
+                    " pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui " +
+                    "officia deserunt mollit anim id est laborum."
+
         val items = listOf(
-            MovieItem("Run", "Comedy, Drama, Thriller ", R.drawable.run),
-            MovieItem("1917", "Comedy, Thriller ", R.drawable._1917),
-            MovieItem("Parasite", "Comedy, Drama ", R.drawable.parasite),
-            MovieItem("Run", "Drama, Thriller ", R.drawable.run)
+            MovieItem("Run", "Comedy, Drama, Thriller ", lorem.take(300).trim(), R.drawable.run),
+            MovieItem("1917", "Comedy, Thriller ", lorem.takeLast(260).trim(), R.drawable._1917),
+            MovieItem("Parasite", "Comedy, Drama ", lorem.take(220).trim(), R.drawable.parasite),
+            MovieItem("Run", "Drama, Thriller ", lorem.takeLast(190).trim(), R.drawable.run)
         )
 
         recyclerView.adapter = MoviesAdapter(items) { view, movieItem ->
@@ -40,6 +47,7 @@ class MainActivity : AppCompatActivity() {
             ContextCompat.getDrawable(this, movieItem.drawableId)
         animated_movie_item.title.text = movieItem.title
         animated_movie_item.tags.text = movieItem.tags
+        animated_movie_item.description.text = movieItem.description
 
         animated_movie_item.back_arrow.setOnClickListener {
             var started = false
@@ -67,8 +75,6 @@ class MainActivity : AppCompatActivity() {
 
             animated_movie_item.transitionToStart()
         }
-
-        activity_root.transitionToStart()
 
         activity_root.transitionToEnd()
         animated_movie_item.transitionToEnd()
