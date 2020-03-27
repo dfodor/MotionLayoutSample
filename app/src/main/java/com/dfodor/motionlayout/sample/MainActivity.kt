@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.animated_movie_item.*
 import kotlinx.android.synthetic.main.animated_movie_item.view.*
+import kotlinx.android.synthetic.main.movie_item.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,6 +38,8 @@ class MainActivity : AppCompatActivity() {
 
         animated_movie_item.thumbnail.background =
             ContextCompat.getDrawable(this, movieItem.drawableId)
+        animated_movie_item.title.text = movieItem.title
+        animated_movie_item.tags.text = movieItem.tags
 
         animated_movie_item.back_arrow.setOnClickListener {
             var started = false

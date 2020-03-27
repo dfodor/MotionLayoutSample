@@ -33,8 +33,8 @@ class MoviesAdapter(
 
         fun bind(item: MovieItem) {
             view.root.background = ContextCompat.getDrawable(view.context, item.drawableId)
-            view.title.text = item.title
-            view.tags.text = item.tags
+            view.movie_title.text = item.title
+            view.movie_tags.text = item.tags
 
             view.root.setOnClickListener {
                 onClick(it, item)

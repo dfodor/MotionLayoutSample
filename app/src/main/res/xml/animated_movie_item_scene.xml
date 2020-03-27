@@ -32,6 +32,22 @@
             app:layout_constraintHorizontal_bias="1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/movie_icon" />
+
+        <Constraint
+            android:id="@+id/tags"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end_animated">
@@ -67,13 +83,29 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <Constraint
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/movie_icon" />
+
+        <Constraint
+            android:id="@+id/tags"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
     </ConstraintSet>
 
     <Transition
         android:id="@+id/animated_movie_item_transition"
         app:constraintSetEnd="@id/end_animated"
         app:constraintSetStart="@id/start_animated"
-        app:duration="300">
+        app:duration="5000">
 
         <KeyFrameSet>
             <KeyAttribute
@@ -93,6 +125,16 @@
                 android:scaleY="1.2"
                 app:framePosition="80"
                 app:motionTarget="@+id/movie_icon" />
+
+            <KeyAttribute
+                android:alpha="1"
+                app:framePosition="80"
+                app:motionTarget="@+id/title" />
+
+            <KeyAttribute
+                android:alpha="1"
+                app:framePosition="80"
+                app:motionTarget="@+id/tags" />
 
         </KeyFrameSet>
 
