@@ -2,41 +2,22 @@
 <MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ConstraintSet android:id="@+id/start_main">
-        <Constraint
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Constraint
-            android:id="@+id/animated_movie_item"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </ConstraintSet>
+    <ConstraintSet android:id="@+id/base_main" />
 
     <ConstraintSet android:id="@+id/end_main">
-        <Constraint
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <Constraint android:id="@+id/recycler_view">
+            <PropertySet android:visibility="gone" />
+        </Constraint>
+
+        <Constraint android:id="@+id/animated_movie_item">
+            <PropertySet android:visibility="visible" />
+        </Constraint>
     </ConstraintSet>
 
     <Transition
         android:id="@+id/transition_main"
         app:constraintSetEnd="@id/end_main"
-        app:constraintSetStart="@+id/start_main"
+        app:constraintSetStart="@+id/base_main"
         app:duration="10" />
 
 </MotionScene>

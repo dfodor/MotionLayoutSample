@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             MovieItem("Run", "Drama, Thriller ", lorem.takeLast(190).trim(), R.drawable.run)
         )
 
-        recyclerView.adapter = MoviesAdapter(items) { view, movieItem ->
+        recycler_view.adapter = MoviesAdapter(items) { view, movieItem ->
             animate(view, movieItem)
         }
     }
