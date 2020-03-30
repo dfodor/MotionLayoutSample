@@ -38,13 +38,13 @@ class MainActivity : AppCompatActivity() {
     private fun animate(view: View, musicBand: MusicBand) {
         val marginTop = (view.height * SCALE).toInt() - (iconSize * SCALE / 2).toInt() - margin
 
-        var set = animatedView.getConstraintSet(R.id.start_animated)
+        var set = animatedView.getConstraintSet(R.id.start)
         set.setMargin(R.id.thumbnail, ConstraintSet.TOP, view.y.toInt())
         set.setVisibility(R.id.thumbnail, ConstraintSet.VISIBLE)
         set.setMargin(R.id.discography, ConstraintSet.TOP, marginTop)
         set.applyTo(animatedView)
 
-        set = animatedView.getConstraintSet(R.id.end_animated)
+        set = animatedView.getConstraintSet(R.id.middle)
         set.setMargin(R.id.discography, ConstraintSet.TOP, marginTop)
         set.applyTo(animatedView)
 
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                 ContextCompat.getDrawable(this@MainActivity, musicBand.drawableId)
             name.text = musicBand.name
             tags.text = musicBand.tags
-            about.text = musicBand.description
+            description.text = musicBand.description
 
             backArrow.setOnClickListener {
                 var started = false
@@ -65,13 +65,13 @@ class MainActivity : AppCompatActivity() {
                         endId: Int,
                         progress: Float
                     ) {
-                        if (progress < 0.1f && startId == R.id.start_animated && !started) {
+                        if (progress < 0.1f && startId == R.id.start && !started) {
                             started = true
                             root.transitionToStart()
                         }
 
-                        if (progress == 0f && startId == R.id.start_animated) {
-                            val constraintSet = animatedView.getConstraintSet(R.id.start_animated)
+                        if (progress == 0f && startId == R.id.start) {
+                            val constraintSet = animatedView.getConstraintSet(R.id.start)
                             constraintSet.setVisibility(R.id.thumbnail, ConstraintSet.GONE)
                             constraintSet.applyTo(animatedView)
                         }
