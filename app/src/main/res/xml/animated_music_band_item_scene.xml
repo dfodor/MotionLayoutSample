@@ -6,15 +6,17 @@
         <Constraint
             android:id="@+id/thumbnail"
             android:layout_width="0dp"
-            android:layout_height="200dp"
-            android:scaleX="1"
-            android:scaleY="1"
-            android:layout_marginEnd="@dimen/one_grid_unit"
+            android:layout_height="0dp"
             android:layout_marginStart="@dimen/one_grid_unit"
             android:layout_marginTop="@dimen/one_grid_unit"
+            android:layout_marginEnd="@dimen/one_grid_unit"
+            android:scaleX="1"
+            android:scaleY="1"
+            app:layout_constraintDimensionRatio="16:9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
         <Constraint
             android:id="@+id/back_arrow"
             android:layout_width="@dimen/four_grid_unit"
@@ -24,14 +26,12 @@
             android:alpha="0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
         <Constraint
-            android:id="@+id/movie_icon"
+            android:id="@+id/discography"
             android:layout_width="@dimen/six_grid_unit"
             android:layout_height="@dimen/six_grid_unit"
-            android:layout_marginTop="200dp"
             android:layout_marginEnd="@dimen/two_grid_unit"
-            android:scaleY="0"
-            android:scaleX="0"
             android:alpha="0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1"
@@ -39,12 +39,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Constraint
-            android:id="@+id/title"
+            android:id="@+id/name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:alpha="0"
             app:layout_constraintEnd_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/movie_icon" />
+            app:layout_constraintTop_toBottomOf="@id/discography" />
 
         <Constraint
             android:id="@+id/tags"
@@ -52,10 +52,10 @@
             android:layout_height="wrap_content"
             android:alpha="0"
             app:layout_constraintEnd_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title" />
+            app:layout_constraintTop_toBottomOf="@id/name" />
 
         <Constraint
-            android:id="@+id/description"
+            android:id="@+id/about"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/four_grid_unit"
@@ -66,15 +66,17 @@
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end_animated">
+
         <Constraint
             android:id="@+id/thumbnail"
             android:layout_width="0dp"
-            android:layout_height="200dp"
+            android:layout_height="0dp"
             android:scaleX="1.2"
             android:scaleY="1.2"
-            android:layout_marginEnd="0dp"
             android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
             android:layout_marginTop="0dp"
+            app:layout_constraintDimensionRatio="16:9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -89,10 +91,9 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Constraint
-            android:id="@+id/movie_icon"
+            android:id="@+id/discography"
             android:layout_width="@dimen/six_grid_unit"
             android:layout_height="@dimen/six_grid_unit"
-            android:layout_marginTop="200dp"
             android:layout_marginEnd="@dimen/two_grid_unit"
             android:scaleX="1"
             android:scaleY="1"
@@ -102,12 +103,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Constraint
-            android:id="@+id/title"
+            android:id="@+id/name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/movie_icon" />
+            app:layout_constraintTop_toBottomOf="@id/discography" />
 
         <Constraint
             android:id="@+id/tags"
@@ -115,10 +116,10 @@
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title" />
+            app:layout_constraintTop_toBottomOf="@id/name" />
 
         <Constraint
-            android:id="@+id/description"
+            android:id="@+id/about"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/four_grid_unit"
@@ -129,7 +130,7 @@
     </ConstraintSet>
 
     <Transition
-        android:id="@+id/animated_movie_item_transition"
+        android:id="@+id/animated_music_band_item_transition"
         app:constraintSetEnd="@id/end_animated"
         app:constraintSetStart="@id/start_animated"
         app:duration="300">
@@ -151,12 +152,12 @@
                 android:scaleX="1.2"
                 android:scaleY="1.2"
                 app:framePosition="80"
-                app:motionTarget="@+id/movie_icon" />
+                app:motionTarget="@+id/discography" />
 
             <KeyAttribute
                 android:alpha="1"
                 app:framePosition="80"
-                app:motionTarget="@+id/title" />
+                app:motionTarget="@+id/name" />
 
             <KeyAttribute
                 android:alpha="1"
@@ -166,7 +167,7 @@
             <KeyAttribute
                 android:alpha="1"
                 app:framePosition="90"
-                app:motionTarget="@+id/description" />
+                app:motionTarget="@+id/about" />
 
         </KeyFrameSet>
 

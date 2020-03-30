@@ -9,7 +9,7 @@
             <PropertySet android:visibility="gone" />
         </Constraint>
 
-        <Constraint android:id="@+id/animated_movie_item">
+        <Constraint android:id="@+id/animated_music_band_item">
             <PropertySet android:visibility="visible" />
         </Constraint>
     </ConstraintSet>
