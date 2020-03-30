@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="quarter_grid_unit">2dp</dimen>
+    <dimen name="half_grid_unit">4dp</dimen>
+    <dimen name="one_grid_unit">8dp</dimen>
+    <dimen name="one_and_half_grid_unit">12dp</dimen>
+    <dimen name="two_grid_unit">16dp</dimen>
+    <dimen name="three_grid_unit">24dp</dimen>
+    <dimen name="four_grid_unit">32dp</dimen>
+    <dimen name="five_grid_unit">40dp</dimen>
+    <dimen name="six_grid_unit">48dp</dimen>
+
+    <dimen name="back_arrow_margin_start">50dp</dimen>
+</resources>

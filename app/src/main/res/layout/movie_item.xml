@@ -5,10 +5,10 @@
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    app:cardCornerRadius="4dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
+    app:cardCornerRadius="@dimen/half_grid_unit"
+    android:layout_marginTop="@dimen/one_grid_unit"
+    android:layout_marginStart="@dimen/one_grid_unit"
+    android:layout_marginEnd="@dimen/one_grid_unit"
     tools:background="@drawable/parasite">
 
     <LinearLayout
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="@dimen/two_grid_unit">
 
         <TextView
             android:id="@+id/movie_title"
