@@ -82,15 +82,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!--        <Constraint-->
-        <!--            android:id="@+id/about_container"-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="0dp"-->
-        <!--            android:visibility="gone"-->
-        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="parent" />-->
+        <Constraint
+            android:id="@+id/about_container"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Constraint
             android:id="@+id/back_arrow"
@@ -111,7 +111,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+            <Motion app:transitionEasing="accelerate" />
+        </Constraint>
 
         <Constraint
             android:id="@+id/name"
@@ -158,8 +160,8 @@
 
         <Constraint
             android:id="@+id/discography"
-            android:layout_width="@dimen/six_grid_unit"
-            android:layout_height="@dimen/six_grid_unit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -172,6 +174,10 @@
         app:constraintSetEnd="@id/middle"
         app:constraintSetStart="@id/start"
         app:duration="300">
+
+        <OnClick
+            app:clickAction="toggle"
+            app:targetId="@+id/back_arrow" />
 
         <KeyFrameSet>
             <KeyAttribute
@@ -215,41 +221,11 @@
         android:id="@+id/middle_to_end"
         app:constraintSetEnd="@id/end"
         app:constraintSetStart="@id/middle"
-        app:duration="300">
+        app:duration="500">
 
         <OnClick
             app:clickAction="toggle"
             app:targetId="@+id/discography" />
-
-        <KeyFrameSet>
-
-            <KeyPosition
-                app:framePosition="15"
-                app:keyPositionType="parentRelative"
-                app:motionTarget="@+id/discography"
-                app:percentX="0.65"
-                app:percentY="0.4" />
-
-            <KeyPosition
-                app:framePosition="50"
-                app:keyPositionType="parentRelative"
-                app:motionTarget="@+id/discography"
-                app:percentX="0.5"
-                app:percentY="0.5" />
-
-            <!--            <KeyPosition-->
-            <!--                app:framePosition="0"-->
-            <!--                app:keyPositionType="parentRelative"-->
-            <!--                app:motionTarget="@+id/about_container"-->
-            <!--                app:percentX="0.5"-->
-            <!--                app:percentY="0.5" />-->
-
-            <!--            <KeyAttribute-->
-            <!--                android:alpha="1"-->
-            <!--                app:framePosition="20"-->
-            <!--                app:motionTarget="@+id/about_container" />-->
-
-        </KeyFrameSet>
 
     </Transition>
 

@@ -1,6 +1,7 @@
 package com.dfodor.motionlayout.sample
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
@@ -55,17 +56,24 @@ class MainActivity : AppCompatActivity() {
             tags.text = musicBand.tags
             description.text = musicBand.description
 
-            backArrow.setOnClickListener {
-                var started = false
+            var started = false
+            var isFromEndToMiddle = false
+            var isFromEndToMiddleSet = false
+            animatedView.setTransitionListener(object : TransitionAdapter() {
+                override fun onTransitionChange(
+                    motionLayout: MotionLayout,
+                    startId: Int,
+                    endId: Int,
+                    progress: Float
+                ) {
 
-                animatedView.setTransitionListener(object : TransitionAdapter() {
-                    override fun onTransitionChange(
-                        motionLayout: MotionLayout,
-                        startId: Int,
-                        endId: Int,
-                        progress: Float
-                    ) {
-                        if (progress < 0.1f && startId == R.id.start && !started) {
+                    if (startId == R.id.middle && endId == R.id.end && !isFromEndToMiddleSet) {
+                        isFromEndToMiddle = progress - 0.5 > 0
+                        isFromEndToMiddleSet = true
+                    }
+
+                    if (startId == R.id.start) {
+                        if (progress < 0.1f && !started) {
                             started = true
                             root.transitionToStart()
                         }
@@ -75,11 +83,34 @@ class MainActivity : AppCompatActivity() {
                             constraintSet.setVisibility(R.id.thumbnail, ConstraintSet.GONE)
                             constraintSet.applyTo(animatedView)
                         }
+                    } else if (endId == R.id.end && !started && isFromEndToMiddle) {
+                        if (progress < 0.5) {
+                            started = true
+                            discography.background =
+                                ContextCompat.getDrawable(
+                                    applicationContext,
+                                    R.drawable.round_background
+                                )
+                        }
+                    } else if (startId == R.id.middle && !started && !isFromEndToMiddle) {
+                        if (progress > 0.5) {
+                            started = true
+                            discography.background =
+                                ContextCompat.getDrawable(
+                                    applicationContext,
+                                    R.drawable.square_background
+                                )
+                        }
                     }
-                })
 
-                animatedView.transitionToStart()
-            }
+                    if (progress == 1f || progress == 0f) {
+                        started = false
+                        isFromEndToMiddleSet = false
+                    }
+                }
+            })
+
+            animatedView.transitionToStart()
 
             root.transitionToEnd()
             animatedView.transitionToEnd()

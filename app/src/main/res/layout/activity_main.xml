@@ -25,12 +25,12 @@
         android:id="@+id/animated_music_band_item"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:background="@android:color/holo_orange_dark"
         android:visibility="gone"
         app:layoutDescription="@xml/animated_music_band_item_scene"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:motionDebug="SHOW_ALL">
 
         <ImageView
             android:id="@+id/thumbnail"
@@ -41,13 +41,13 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/camel_mirage" />
 
-<!--        <FrameLayout-->
-<!--            android:id="@+id/about_container"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="0dp"-->
-<!--            android:visibility="gone"-->
-<!--            android:background="@android:color/holo_red_dark"-->
-<!--            tools:ignore="MissingConstraints" />-->
+        <FrameLayout
+            android:id="@+id/about_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/holo_red_dark"
+            android:visibility="gone"
+            tools:ignore="MissingConstraints" />
 
         <ImageView
             android:id="@+id/back_arrow"
@@ -65,6 +65,7 @@
             android:layout_marginEnd="@dimen/two_grid_unit"
             android:src="@drawable/help_icon"
             android:visibility="invisible"
+            android:background="@drawable/round_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
