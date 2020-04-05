@@ -1,7 +1,6 @@
 package com.dfodor.motionlayout.sample
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
@@ -21,6 +20,12 @@ class MainActivity : AppCompatActivity() {
     private var margin = 0
     private var scaleValue = 0
 
+    private val firstSet = R.id.first_set
+    private val secondSet = R.id.second_set
+    private val thirdSet = R.id.third_set
+    private val fourthSet = R.id.fourth_set
+    private val fifthSet = R.id.fifth_set
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -39,13 +44,17 @@ class MainActivity : AppCompatActivity() {
     private fun animate(view: View, musicBand: MusicBand) {
         val marginTop = (view.height * SCALE).toInt() - (iconSize * SCALE / 2).toInt() - margin
 
-        var set = animatedView.getConstraintSet(R.id.start)
+        var set = animatedView.getConstraintSet(firstSet)
         set.setMargin(R.id.thumbnail, ConstraintSet.TOP, view.y.toInt())
         set.setVisibility(R.id.thumbnail, ConstraintSet.VISIBLE)
         set.setMargin(R.id.discography, ConstraintSet.TOP, marginTop)
         set.applyTo(animatedView)
 
-        set = animatedView.getConstraintSet(R.id.middle)
+        set = animatedView.getConstraintSet(secondSet)
+        set.setMargin(R.id.discography, ConstraintSet.TOP, marginTop)
+        set.applyTo(animatedView)
+
+        set = animatedView.getConstraintSet(thirdSet)
         set.setMargin(R.id.discography, ConstraintSet.TOP, marginTop)
         set.applyTo(animatedView)
 
@@ -55,62 +64,45 @@ class MainActivity : AppCompatActivity() {
             name.text = musicBand.name
             tags.text = musicBand.tags
             description.text = musicBand.description
+            aboutText.text = musicBand.description
 
             var started = false
-            var isFromEndToMiddle = false
-            var isFromEndToMiddleSet = false
             animatedView.setTransitionListener(object : TransitionAdapter() {
-                override fun onTransitionChange(
-                    motionLayout: MotionLayout,
-                    startId: Int,
-                    endId: Int,
-                    progress: Float
-                ) {
-
-                    if (startId == R.id.middle && endId == R.id.end && !isFromEndToMiddleSet) {
-                        isFromEndToMiddle = progress - 0.5 > 0
-                        isFromEndToMiddleSet = true
-                    }
-
-                    if (startId == R.id.start) {
-                        if (progress < 0.1f && !started) {
-                            started = true
-                            root.transitionToStart()
+                override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
+                    when (currentId) {
+                        secondSet -> {
+                            animatedView.setTransition(secondSet, thirdSet)
+                            animatedView.setTransitionDuration(400)
+                            animatedView.transitionToState(thirdSet)
                         }
-
-                        if (progress == 0f && startId == R.id.start) {
-                            val constraintSet = animatedView.getConstraintSet(R.id.start)
-                            constraintSet.setVisibility(R.id.thumbnail, ConstraintSet.GONE)
-                            constraintSet.applyTo(animatedView)
+                        thirdSet -> {
+                            animatedView.setTransition(thirdSet, fourthSet)
+                            animatedView.setTransitionDuration(1000)
+                            animatedView.transitionToState(fourthSet)
                         }
-                    } else if (endId == R.id.end && !started && isFromEndToMiddle) {
-                        if (progress < 0.5) {
-                            started = true
-                            discography.background =
-                                ContextCompat.getDrawable(
-                                    applicationContext,
-                                    R.drawable.round_background
-                                )
+                        fourthSet -> {
+                            // todo check flickering at the end of the animation
+                            animatedView.setTransition(fourthSet, fifthSet)
+                            animatedView.setTransitionDuration(1000)
+                            animatedView.transitionToState(fifthSet)
                         }
-                    } else if (startId == R.id.middle && !started && !isFromEndToMiddle) {
-                        if (progress > 0.5) {
-                            started = true
-                            discography.background =
-                                ContextCompat.getDrawable(
-                                    applicationContext,
-                                    R.drawable.square_background
-                                )
-                        }
-                    }
-
-                    if (progress == 1f || progress == 0f) {
-                        started = false
-                        isFromEndToMiddleSet = false
                     }
                 }
-            })
 
-            animatedView.transitionToStart()
+                override fun onTransitionStarted(
+                    motionLayout: MotionLayout,
+                    startId: Int,
+                    endId: Int
+                ) {
+//                    if (startId == firstSet) {
+//                        root.transitionToStart()
+//
+////                        val constraintSet = animatedView.getConstraintSet(firstSet)
+////                        constraintSet.setVisibility(R.id.thumbnail, ConstraintSet.GONE)
+////                        constraintSet.applyTo(animatedView)
+//                    }
+                }
+            })
 
             root.transitionToEnd()
             animatedView.transitionToEnd()

@@ -34,27 +34,19 @@
 
         <ImageView
             android:id="@+id/thumbnail"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/camel_mirage" />
-
-        <FrameLayout
-            android:id="@+id/about_container"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@android:color/holo_red_dark"
-            android:visibility="gone"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            tools:src="@drawable/camel_mirage" />
 
         <ImageView
             android:id="@+id/back_arrow"
             android:layout_width="@dimen/four_grid_unit"
             android:layout_height="@dimen/four_grid_unit"
+            android:layout_marginStart="@dimen/back_arrow_margin_start"
             android:layout_marginTop="@dimen/two_grid_unit"
             android:src="@drawable/back_arrow"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -65,7 +57,6 @@
             android:layout_marginEnd="@dimen/two_grid_unit"
             android:src="@drawable/help_icon"
             android:visibility="invisible"
-            android:background="@drawable/round_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -79,6 +70,7 @@
             android:paddingEnd="@dimen/two_grid_unit"
             android:textColor="@android:color/black"
             android:textSize="20sp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@id/thumbnail"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="Camel" />
@@ -92,6 +84,7 @@
             android:paddingEnd="@dimen/two_grid_unit"
             android:textColor="@android:color/black"
             android:textSize="18sp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toStartOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/name"
@@ -107,6 +100,26 @@
             android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tags" />
+
+        <com.dfodor.motionlayout.sample.CircleCardView
+            android:id="@+id/about_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            android:foreground="@color/colorAccent"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardElevation="0dp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/about_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/two_grid_unit"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:visibility="invisible"
+            tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.motion.widget.MotionLayout>
 
