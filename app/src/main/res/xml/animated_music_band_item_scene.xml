@@ -328,8 +328,8 @@
 
     <Transition
         android:id="@+id/third_to_fourth_transition"
-        app:constraintSetEnd="@id/third_set"
-        app:constraintSetStart="@id/fourth_set"
+        app:constraintSetEnd="@id/fourth_set"
+        app:constraintSetStart="@id/third_set"
         app:duration="300">
         <OnClick
             app:clickAction="toggle"
@@ -338,8 +338,8 @@
 
     <Transition
         android:id="@+id/fourth_to_fifth_transition"
-        app:constraintSetEnd="@id/fourth_set"
-        app:constraintSetStart="@id/fifth_set"
+        app:constraintSetEnd="@id/fifth_set"
+        app:constraintSetStart="@id/fourth_set"
         app:duration="500">
 
         <OnClick

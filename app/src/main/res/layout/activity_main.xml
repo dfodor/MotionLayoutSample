@@ -50,16 +50,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/discography"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginEnd="@dimen/two_grid_unit"
-            android:src="@drawable/help_icon"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/name"
@@ -105,8 +95,8 @@
             android:id="@+id/about_container"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:visibility="gone"
             android:foreground="@color/colorAccent"
+            android:visibility="gone"
             app:cardBackgroundColor="@android:color/transparent"
             app:cardElevation="0dp"
             tools:ignore="MissingConstraints" />
@@ -120,6 +110,17 @@
             android:textSize="18sp"
             android:visibility="invisible"
             tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/discography"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/two_grid_unit"
+            android:src="@drawable/help_icon"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.motion.widget.MotionLayout>
 
