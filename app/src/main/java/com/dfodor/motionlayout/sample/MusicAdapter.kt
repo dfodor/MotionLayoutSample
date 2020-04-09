@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.music_band_item.view.*
 
 class MusicAdapter(
-    private val items: List<MusicBand>,
-    private val onClick: (View, MusicBand) -> Unit
+    private val items: List<MusicBandModel>,
+    private val onClick: (View, MusicBandModel) -> Unit
 ) :
     RecyclerView.Adapter<MusicAdapter.MusicBandViewHolder>() {
 
@@ -27,11 +27,11 @@ class MusicAdapter(
 
     inner class MusicBandViewHolder(
         private val view: View,
-        private val onClick: (View, MusicBand) -> Unit
+        private val onClick: (View, MusicBandModel) -> Unit
     ) :
         RecyclerView.ViewHolder(view) {
 
-        fun bind(item: MusicBand) {
+        fun bind(item: MusicBandModel) {
             view.root.background = ContextCompat.getDrawable(view.context, item.drawableId)
             view.name.text = item.name
             view.tags.text = item.tags

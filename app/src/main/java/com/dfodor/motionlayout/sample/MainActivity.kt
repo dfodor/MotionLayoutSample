@@ -61,6 +61,7 @@ class MainActivity : AppCompatActivity() {
                         transitionToState(thirdSet)
                         activeSet = StateSet.SECOND_TO_THIRD
                     }
+
                     StateSet.SECOND_TO_FIRST -> {
                         binding.root.transitionToStart()
 
@@ -88,7 +89,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun animate(view: View, musicBand: MusicBand) {
+    private fun animate(view: View, musicBandModel: MusicBandModel) {
         val marginTop = (view.height * SCALE).toInt() - (iconSize * SCALE / 2).toInt() - margin
 
         animatedView.also {
@@ -109,11 +110,11 @@ class MainActivity : AppCompatActivity() {
 
             with(binding) {
                 thumbnail.background =
-                    ContextCompat.getDrawable(this@MainActivity, musicBand.drawableId)
-                name.text = musicBand.name
-                tags.text = musicBand.tags
-                description.text = musicBand.description
-                aboutText.text = musicBand.description
+                    ContextCompat.getDrawable(this@MainActivity, musicBandModel.drawableId)
+                name.text = musicBandModel.name
+                tags.text = musicBandModel.tags
+                description.text = getString(musicBandModel.shortDescriptionStringRes)
+                aboutText.text = getString(musicBandModel.aboutStringRes)
 
                 it.setTransitionListener(transitionAdapter)
 

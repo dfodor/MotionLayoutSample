@@ -1,3 +1,60 @@
 <resources>
     <string name="app_name">MotionLayoutSample</string>
+
+    <string name="pink_floyd_short_description">Pink Floyd were an English rock band formed
+        in London in 1965. Gaining a following as a psychedelic band, they were distinguished
+        for their extended compositions, sonic experimentation, philosophical lyrics and elaborate
+        live shows, and became a leading band of the progressive rock genre. They are one of the
+        most commercially successful and influential groups in popular music history.</string>
+
+    <string name="pink_floyd_about">Pink Floyd were founded by students Syd Barrett
+        (guitar and lead vocals), Nick Mason (drums), Roger Waters (bass and vocals),
+        and Richard Wright (keyboards and vocals). Under Barrett\'s leadership, they released two
+        charting singles and a successful debut album, The Piper at the Gates of Dawn (1967).
+        \n\nGuitarist and vocalist David Gilmour joined in December 1967; Barrett left in April 1968
+        due to deteriorating mental health. Waters became their primary lyricist and thematic
+        leader, devising the concepts behind the albums The Dark Side of the Moon (1973),
+        Wish You Were Here (1975), Animals (1977), The Wall (1979) and The Final Cut (1983).
+        The band also composed several film scores.</string>
+
+    <string name="boc_short_description">Blue Öyster Cult (often abbreviated BÖC or BOC) is
+        an American rock band formed on Long Island, New York, in 1967, whose most successful
+        work includes the hard rock songs "(Don't Fear) The Reaper," "Godzilla," "Black Blade,"
+        "Burnin' for You" and "Shooting Shark."</string>
+    <string name="boc_about">Blue Öyster Cult has sold more than 24 million records worldwide,
+        including 7 million in the United States alone. The band\'s music videos, especially
+        "Burnin' for You," received heavy rotation on MTV when the music television network
+        premiered in 1981, cementing the band\'s contribution to the development and success of
+        the music video in modern popular culture.\n\nWhile Blue Öyster Cult has been noted
+        for heavy rock, they would often add their own
+        tongue-in-cheek style. Keeping with their image, the band would often include
+        out-of-context fragments of Pearlman’s The Soft Doctrines of Imaginos into their lyrics,
+        giving their songs cryptic meanings. Additionally, the band would keep a folder
+        of Meltzer\'s and Pearlman\'s word associations to insert into their music.</string>
+
+    <string name="camel_short_description">The band played is an English progressive rock group from London,
+        England, United Kingdom. They formed circa 1964 when brothers Andrew and Ian Latimer got
+        together with their respective friends Alan Butcher and Richard Over to form The
+        Phantom Four.</string>
+    <string name="camel_about">Camel played extensively around their home town of Guildford,
+        Surrey before changing their name to Strange Brew. The group performed mainly cover tunes
+        until mid-1968 when Ian Latimer quit to get married. Andrew Latimer and Alan Butcher placed
+        an ad in the Surrey Advertiser for a bass player to which Doug Ferguson responded.
+        \n\nOn 13th November 1968 Ferguson arrived for an audition and promptly impressed the duo with
+        his confidence, a \'fat\' bass sound, excellent gear (Fender jazz bass, 2 Vox T-60 cabs with
+        amps) and his own roadie! He was offered the gig on the spot. The new blues orientated
+        trio was called The Brew. Shortly after joining The Brew, Ferguson told Latimer about an
+        exciting drummer he knew. Andy Ward joined The Brew at the tender age of 14 and the heart
+        of camel had begun to take shape.</string>
+
+    <string name="king_crimson_short_description">King Crimson are a progressive rock group from
+        London, England, United Kingdom formed in 1968 by guitarist Robert Fripp and drummer
+        Michael Giles. Though originally an all-British musical group, later members have included
+        a number of Americans, most notably Adrian Belew, and Tony Levin. The name "King Crimson"
+        was coined by Peter Sinfield as a synonym for Beelzebub, prince of demons.</string>
+    <string name="king_crimson_about">King Crimson\'s debut album was In the Court of the Crimson
+        King. The first major success of the new genre of progressive rock, many bands that would
+        come to dominate \'prog\' in the 1970s first sought to emulate In the Court of the
+        Crimson King, including Genesis, the Alan Parsons Project, and later Rush.
+The line-up of King Crimson has at times changed drastically from album to album.</string>
 </resources>
