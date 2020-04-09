@@ -29,8 +29,7 @@
         app:layoutDescription="@xml/animated_music_band_item_scene"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:motionDebug="SHOW_ALL">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/thumbnail"
@@ -95,7 +94,7 @@
             android:id="@+id/about_container"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:foreground="@color/colorAccent"
+            android:foreground="@android:color/holo_orange_dark"
             android:visibility="gone"
             app:cardBackgroundColor="@android:color/transparent"
             app:cardElevation="0dp"

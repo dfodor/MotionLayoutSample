@@ -8,24 +8,17 @@ import androidx.constraintlayout.motion.widget.TransitionAdapter
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat
 import com.dfodor.motionlayout.sample.databinding.ActivityMainBinding
-import kotlin.math.roundToInt
 
 private const val SCALE = 1.2f
-private const val FIRST_ANIMATION_PART_DURATION = 400
-private const val SECOND_ANIMATION_PART_DURATION = 800
+private const val ANIMATION_DURATION = 400
 
 class MainActivity : AppCompatActivity() {
 
     private enum class StateSet {
-        START,
-        END,
         FIRST_TO_SECOND,
         SECOND_TO_THIRD,
-        FOURTH_TO_FIFTH,
         SECOND_TO_FIRST,
-        THIRD_TO_SECOND,
-        FOURTH_TO_THIRD,
-        FIFTH_TO_FOURTH
+        THIRD_TO_SECOND
     }
 
     private lateinit var binding: ActivityMainBinding
@@ -38,10 +31,8 @@ class MainActivity : AppCompatActivity() {
     private val firstSet = R.id.first_set
     private val secondSet = R.id.second_set
     private val thirdSet = R.id.third_set
-    private val fourthSet = R.id.fourth_set
-    private val fifthSet = R.id.fifth_set
 
-    private var activeSet = StateSet.START
+    private var activeSet = StateSet.FIRST_TO_SECOND
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                 when (activeSet) {
                     StateSet.FIRST_TO_SECOND -> {
                         setTransition(secondSet, thirdSet)
-                        setTransitionDuration(FIRST_ANIMATION_PART_DURATION)
+                        setTransitionDuration(ANIMATION_DURATION)
                         transitionToState(thirdSet)
                         activeSet = StateSet.SECOND_TO_THIRD
                     }
@@ -76,44 +67,22 @@ class MainActivity : AppCompatActivity() {
                         val constraintSet = getConstraintSet(firstSet)
                         constraintSet.setVisibility(R.id.thumbnail, ConstraintSet.GONE)
                         constraintSet.applyTo(this)
-                        activeSet = StateSet.START
                     }
 
                     StateSet.THIRD_TO_SECOND -> {
                         setTransition(secondSet, firstSet)
-                        setTransitionDuration(FIRST_ANIMATION_PART_DURATION)
+                        setTransitionDuration(ANIMATION_DURATION)
                         transitionToState(firstSet)
                         activeSet = StateSet.SECOND_TO_FIRST
-                    }
-
-                    StateSet.FOURTH_TO_FIFTH -> {
-                        setTransition(fourthSet, fifthSet)
-                        setTransitionDuration(SECOND_ANIMATION_PART_DURATION)
-                        transitionToState(fifthSet)
-                        activeSet = StateSet.END
-                    }
-
-                    StateSet.FIFTH_TO_FOURTH -> {
-                        setTransition(fourthSet, thirdSet)
-                        setTransitionDuration(SECOND_ANIMATION_PART_DURATION)
-                        transitionToState(thirdSet)
-                        activeSet = StateSet.FOURTH_TO_THIRD
                     }
                 }
             }
         }
 
         override fun onTransitionStarted(motionLayout: MotionLayout, startId: Int, endId: Int) {
-            val progress = motionLayout.progress.roundToInt()
-            val isFourthSet = motionLayout.currentState == fourthSet
-            val isSecondSet = motionLayout.currentState == secondSet
-
-            if (isSecondSet && startId == secondSet) {
+            val isSecondSet = motionLayout.currentState == secondSet && startId == secondSet
+            if (isSecondSet) {
                 activeSet = StateSet.THIRD_TO_SECOND
-            } else if (isFourthSet && (progress == 0)) {
-                activeSet = StateSet.FOURTH_TO_FIFTH
-            } else if (isFourthSet && (progress == 1)) {
-                activeSet = StateSet.FIFTH_TO_FOURTH
             }
         }
     }
@@ -135,6 +104,7 @@ class MainActivity : AppCompatActivity() {
 
             set = it.getConstraintSet(thirdSet)
             set.setMargin(R.id.discography, ConstraintSet.TOP, marginTop)
+            set.setMargin(R.id.about_container, ConstraintSet.TOP, marginTop)
             set.applyTo(it)
 
             with(binding) {
@@ -149,7 +119,7 @@ class MainActivity : AppCompatActivity() {
 
                 root.transitionToEnd()
                 it.setTransition(firstSet, secondSet)
-                it.setTransitionDuration(FIRST_ANIMATION_PART_DURATION)
+                it.setTransitionDuration(ANIMATION_DURATION)
                 it.transitionToState(secondSet)
                 activeSet = StateSet.FIRST_TO_SECOND
             }
