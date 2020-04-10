@@ -316,7 +316,7 @@
         android:id="@+id/third_to_fourth_transition"
         app:constraintSetEnd="@id/fourth_set"
         app:constraintSetStart="@id/third_set"
-        app:duration="500"
+        app:duration="350"
         app:motionInterpolator="easeOut">
         <OnClick
             app:clickAction="toggle"
