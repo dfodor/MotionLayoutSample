@@ -40,11 +40,11 @@
 
         <ImageView
             android:id="@+id/back_arrow"
-            android:layout_width="@dimen/four_grid_unit"
-            android:layout_height="@dimen/four_grid_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/back_arrow_margin_start"
             android:layout_marginTop="@dimen/two_grid_unit"
-            android:src="@drawable/back_arrow"
+            android:src="@drawable/arrow_left"
             android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -59,6 +59,7 @@
             android:paddingEnd="@dimen/two_grid_unit"
             android:textColor="@android:color/black"
             android:textSize="20sp"
+            android:textStyle="bold"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@id/thumbnail"
             app:layout_constraintStart_toStartOf="parent"
@@ -94,7 +95,7 @@
             android:id="@+id/about_container"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:foreground="@android:color/holo_orange_dark"
+            android:foreground="@color/grey"
             android:visibility="gone"
             app:cardBackgroundColor="@android:color/transparent"
             app:cardElevation="0dp"
@@ -105,18 +106,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/two_grid_unit"
-            android:textColor="@android:color/white"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
             android:visibility="invisible"
             tools:ignore="MissingConstraints" />
 
-        <ImageView
-            android:id="@+id/discography"
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/more_info"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginEnd="@dimen/two_grid_unit"
-            android:src="@drawable/help_icon"
+            android:src="@drawable/info_icon"
             android:visibility="invisible"
+            app:altSrc="@drawable/close_icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

@@ -44,8 +44,8 @@ class MainActivity : AppCompatActivity() {
         margin = resources.getDimensionPixelSize(R.dimen.one_grid_unit)
         scaleValue = (iconSize * SCALE / 2).toInt()
 
-        binding.recyclerView.adapter = MusicAdapter(getTestItems()) { view, musicBand ->
-            animate(view, musicBand)
+        binding.recyclerView.adapter = MusicAdapter(getTestItems()) { vhValues, musicBand ->
+            animate(vhValues, musicBand)
         }
     }
 
@@ -89,22 +89,22 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun animate(view: View, musicBandModel: MusicBandModel) {
-        val marginTop = (view.height * SCALE).toInt() - (iconSize * SCALE / 2).toInt() - margin
+    private fun animate(vhValues: MusicAdapter.ViewHolderValues, musicBandModel: MusicBandModel) {
+        val marginTop = (vhValues.getHeight() * SCALE).toInt() - (iconSize * SCALE / 2).toInt() - margin
 
         animatedView.also {
             var set = it.getConstraintSet(firstSet)
-            set.setMargin(R.id.thumbnail, ConstraintSet.TOP, view.y.toInt())
+            set.setMargin(R.id.thumbnail, ConstraintSet.TOP, vhValues.getY())
             set.setVisibility(R.id.thumbnail, ConstraintSet.VISIBLE)
-            set.setMargin(R.id.discography, ConstraintSet.TOP, marginTop)
+            set.setMargin(R.id.more_info, ConstraintSet.TOP, marginTop)
             set.applyTo(it)
 
             set = it.getConstraintSet(secondSet)
-            set.setMargin(R.id.discography, ConstraintSet.TOP, marginTop)
+            set.setMargin(R.id.more_info, ConstraintSet.TOP, marginTop)
             set.applyTo(it)
 
             set = it.getConstraintSet(thirdSet)
-            set.setMargin(R.id.discography, ConstraintSet.TOP, marginTop)
+            set.setMargin(R.id.more_info, ConstraintSet.TOP, marginTop)
             set.setMargin(R.id.about_container, ConstraintSet.TOP, marginTop)
             set.applyTo(it)
 

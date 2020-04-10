@@ -22,8 +22,8 @@
 
         <Constraint android:id="@id/back_arrow">
             <Layout
-                android:layout_width="@dimen/four_grid_unit"
-                android:layout_height="@dimen/four_grid_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/back_arrow_margin_start"
                 android:layout_marginTop="@dimen/two_grid_unit"
                 app:layout_constraintStart_toStartOf="parent"
@@ -54,8 +54,8 @@
 
         <Constraint android:id="@id/back_arrow">
             <Layout
-                android:layout_width="@dimen/four_grid_unit"
-                android:layout_height="@dimen/four_grid_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/back_arrow_margin_start"
                 android:layout_marginTop="@dimen/two_grid_unit"
                 app:layout_constraintStart_toStartOf="parent"
@@ -65,7 +65,7 @@
         </Constraint>
 
         <Constraint
-            android:id="@+id/discography"
+            android:id="@+id/more_info"
             android:layout_width="@dimen/six_grid_unit"
             android:layout_height="@dimen/six_grid_unit"
             android:layout_marginEnd="@dimen/two_grid_unit"
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:alpha="0"
             app:layout_constraintEnd_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/discography" />
+            app:layout_constraintTop_toBottomOf="@id/more_info" />
 
         <Constraint
             android:id="@+id/tags"
@@ -134,18 +134,17 @@
 
         <Constraint android:id="@id/back_arrow">
             <Layout
-                android:layout_width="@dimen/four_grid_unit"
-                android:layout_height="@dimen/four_grid_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/two_grid_unit"
                 android:layout_marginTop="@dimen/two_grid_unit"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
             <PropertySet android:alpha="1" />
-
         </Constraint>
 
         <Constraint
-            android:id="@id/discography"
+            android:id="@id/more_info"
             android:layout_width="@dimen/six_grid_unit"
             android:layout_height="@dimen/six_grid_unit"
             android:layout_marginEnd="@dimen/two_grid_unit"
@@ -155,7 +154,10 @@
             app:layout_constraintHorizontal_bias="1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-            <Motion app:pathMotionArc="startHorizontal" />
+
+            <CustomAttribute
+                app:attributeName="crossfade"
+                app:customFloatValue="0" />
         </Constraint>
 
         <Constraint
@@ -164,7 +166,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/discography" />
+            app:layout_constraintTop_toBottomOf="@id/more_info" />
 
         <Constraint
             android:id="@id/tags"
@@ -178,7 +180,7 @@
             android:id="@id/description"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/four_grid_unit"
+            android:layout_marginTop="@dimen/two_grid_unit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tags" />
@@ -204,7 +206,7 @@
             android:layout_marginTop="@dimen/six_grid_unit"
             android:visibility="invisible"
             app:layout_constraintStart_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/discography" />
+            app:layout_constraintTop_toBottomOf="@id/more_info" />
 
     </ConstraintSet>
 
@@ -233,7 +235,7 @@
         </Constraint>
 
         <Constraint
-            android:id="@+id/discography"
+            android:id="@+id/more_info"
             android:layout_width="@dimen/six_grid_unit"
             android:layout_height="@dimen/six_grid_unit"
             android:layout_marginTop="@dimen/two_grid_unit"
@@ -241,6 +243,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
             <PropertySet android:alpha="1" />
+            <CustomAttribute
+                app:attributeName="crossfade"
+                app:customFloatValue="1" />
         </Constraint>
 
         <Constraint
@@ -266,7 +271,7 @@
             android:alpha="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/discography" />
+            app:layout_constraintTop_toBottomOf="@id/more_info" />
 
     </ConstraintSet>
 
@@ -302,7 +307,7 @@
                 android:scaleX="1.2"
                 android:scaleY="1.2"
                 app:framePosition="50"
-                app:motionTarget="@id/discography" />
+                app:motionTarget="@id/more_info" />
         </KeyFrameSet>
 
     </Transition>
@@ -311,11 +316,11 @@
         android:id="@+id/third_to_fourth_transition"
         app:constraintSetEnd="@id/fourth_set"
         app:constraintSetStart="@id/third_set"
-        app:motionInterpolator="easeOut"
-        app:duration="500">
+        app:duration="500"
+        app:motionInterpolator="easeOut">
         <OnClick
             app:clickAction="toggle"
-            app:targetId="@+id/discography" />
+            app:targetId="@+id/more_info" />
 
         <KeyFrameSet>
             <KeyAttribute
