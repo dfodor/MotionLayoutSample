@@ -1,4 +1,6 @@
-package com.dfodor.motionlayout.sample
+package com.dfodor.motionlayout.sample.sample_1
+
+import com.dfodor.motionlayout.sample.R
 
 fun getTestItems() = listOf(
     MusicBandModel(

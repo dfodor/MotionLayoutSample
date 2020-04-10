@@ -1,4 +1,4 @@
-package com.dfodor.motionlayout.sample
+package com.dfodor.motionlayout.sample.sample_1
 
 import android.content.Context
 import android.util.AttributeSet
@@ -10,8 +10,11 @@ import kotlin.math.min
  * On some versions, this causes a strange behavior so we use this to stay safe.
  */
 //source https://github.com/nikhilpanju/FabFilter/blob/master/app/src/main/java/com/nikhilpanju/fabfilter/views/CircleCardView.kt
-class CircleCardView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0)
-    : CardView(context, attrs, defStyleAttr) {
+class CircleCardView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : CardView(context, attrs, defStyleAttr) {
 
     override fun setRadius(radius: Float) {
         super.setRadius(

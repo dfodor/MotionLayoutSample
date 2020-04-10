@@ -1,4 +1,4 @@
-package com.dfodor.motionlayout.sample
+package com.dfodor.motionlayout.sample.sample_1
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes

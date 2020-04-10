@@ -1,21 +1,25 @@
-package com.dfodor.motionlayout.sample
+package com.dfodor.motionlayout.sample.sample_1
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.dfodor.motionlayout.sample.R
 import kotlinx.android.synthetic.main.music_band_item.view.*
 
-class MusicAdapter(
+class MusicBandAdapter(
     private val items: List<MusicBandModel>,
     private val onClick: (ViewHolderValues, MusicBandModel) -> Unit
 ) :
-    RecyclerView.Adapter<MusicAdapter.MusicBandViewHolder>() {
+    RecyclerView.Adapter<MusicBandAdapter.MusicBandViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MusicBandViewHolder {
         LayoutInflater.from(parent.context).inflate(R.layout.music_band_item, parent, false).also {
-            return MusicBandViewHolder(it, onClick)
+            return MusicBandViewHolder(
+                it,
+                onClick
+            )
         }
     }
 
@@ -28,7 +32,8 @@ class MusicAdapter(
     class MusicBandViewHolder(
         private val view: View,
         private val onClick: (ViewHolderValues, MusicBandModel) -> Unit
-    ) : RecyclerView.ViewHolder(view), ViewHolderValues {
+    ) : RecyclerView.ViewHolder(view),
+        ViewHolderValues {
 
         fun bind(item: MusicBandModel) {
             view.cover.background = ContextCompat.getDrawable(view.context, item.drawableId)

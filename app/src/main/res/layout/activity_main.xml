@@ -1,128 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layoutDescription="@xml/activity_main_scene"
-    tools:context=".MainActivity"
-    tools:ignore="RtlSymmetry, ContentDescription">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/white"
-        android:clipToPadding="false"
-        android:paddingBottom="@dimen/one_grid_unit"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/sample_1_btn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/two_grid_unit"
+        android:text="@string/sample_1"
+        android:textColor="@color/colorPrimaryDark" />
 
-    <androidx.constraintlayout.motion.widget.MotionLayout
-        android:id="@+id/animated_music_band_item"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        app:layoutDescription="@xml/animated_music_band_item_scene"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/thumbnail"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            tools:ignore="MissingConstraints"
-            tools:src="@drawable/camel_mirage" />
-
-        <ImageView
-            android:id="@+id/back_arrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/back_arrow_margin_start"
-            android:layout_marginTop="@dimen/two_grid_unit"
-            android:src="@drawable/arrow_left"
-            android:visibility="invisible"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="@dimen/two_grid_unit"
-            android:paddingTop="@dimen/one_grid_unit"
-            android:paddingEnd="@dimen/two_grid_unit"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@id/thumbnail"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="Camel" />
-
-        <TextView
-            android:id="@+id/tags"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="@dimen/two_grid_unit"
-            android:paddingTop="@dimen/one_grid_unit"
-            android:paddingEnd="@dimen/two_grid_unit"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toStartOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/name"
-            tools:text="Progressive Rock" />
-
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/two_grid_unit"
-            android:textColor="@android:color/black"
-            android:textSize="17sp"
-            android:visibility="invisible"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tags" />
-
-        <com.dfodor.motionlayout.sample.CircleCardView
-            android:id="@+id/about_container"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:foreground="@color/grey"
-            android:visibility="gone"
-            app:cardBackgroundColor="@android:color/transparent"
-            app:cardElevation="0dp"
-            tools:ignore="MissingConstraints" />
-
-        <TextView
-            android:id="@+id/about_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/two_grid_unit"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
-            android:visibility="invisible"
-            tools:ignore="MissingConstraints" />
-
-        <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/more_info"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginEnd="@dimen/two_grid_unit"
-            android:src="@drawable/info_icon"
-            android:visibility="invisible"
-            app:altSrc="@drawable/close_icon"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.motion.widget.MotionLayout>
-
-</androidx.constraintlayout.motion.widget.MotionLayout>
+    <Button
+        android:id="@+id/sample_2_btn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/two_grid_unit"
+        android:text="@string/sample_2"
+        android:textColor="@color/colorPrimaryDark" />
+</LinearLayout>
