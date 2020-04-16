@@ -11,15 +11,11 @@ import kotlinx.android.synthetic.main.music_band_item.view.*
 class MusicBandAdapter(
     private val items: List<MusicBandModel>,
     private val onClick: (ViewHolderValues, MusicBandModel) -> Unit
-) :
-    RecyclerView.Adapter<MusicBandAdapter.MusicBandViewHolder>() {
+) : RecyclerView.Adapter<MusicBandAdapter.MusicBandViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MusicBandViewHolder {
         LayoutInflater.from(parent.context).inflate(R.layout.music_band_item, parent, false).also {
-            return MusicBandViewHolder(
-                it,
-                onClick
-            )
+            return MusicBandViewHolder(it, onClick)
         }
     }
 
@@ -32,13 +28,12 @@ class MusicBandAdapter(
     class MusicBandViewHolder(
         private val view: View,
         private val onClick: (ViewHolderValues, MusicBandModel) -> Unit
-    ) : RecyclerView.ViewHolder(view),
-        ViewHolderValues {
+    ) : RecyclerView.ViewHolder(view), ViewHolderValues {
 
         fun bind(item: MusicBandModel) {
             view.cover.background = ContextCompat.getDrawable(view.context, item.drawableId)
-            view.name.text = item.name
-            view.tags.text = item.tags
+            view.name.text = view.context.getString(item.name)
+            view.tags.text = view.context.getString(item.tags)
 
             view.root.setOnClickListener {
                 onClick(this, item)

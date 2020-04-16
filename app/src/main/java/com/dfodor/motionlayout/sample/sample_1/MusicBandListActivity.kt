@@ -115,8 +115,8 @@ class MusicBandListActivity : AppCompatActivity() {
             with(binding) {
                 thumbnail.background =
                     ContextCompat.getDrawable(this@MusicBandListActivity, musicBandModel.drawableId)
-                name.text = musicBandModel.name
-                tags.text = musicBandModel.tags
+                name.text = getString(musicBandModel.name)
+                tags.text = getString(musicBandModel.tags)
                 description.text = getString(musicBandModel.shortDescriptionStringRes)
                 aboutText.text = getString(musicBandModel.aboutStringRes)
 
