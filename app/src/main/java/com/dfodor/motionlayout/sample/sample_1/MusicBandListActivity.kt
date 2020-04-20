@@ -14,7 +14,7 @@ private const val ANIMATION_DURATION = 400
 
 class MusicBandListActivity : AppCompatActivity() {
 
-    private enum class StateSet {
+    private enum class ConstraintSetState {
         FIRST_TO_SECOND,
         SECOND_TO_THIRD,
         SECOND_TO_FIRST,
@@ -32,7 +32,7 @@ class MusicBandListActivity : AppCompatActivity() {
     private val secondSet = R.id.second_set
     private val thirdSet = R.id.third_set
 
-    private var activeSet = StateSet.FIRST_TO_SECOND
+    private var activeSet = ConstraintSetState.FIRST_TO_SECOND
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,14 +55,14 @@ class MusicBandListActivity : AppCompatActivity() {
         override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
             with(animatedView) {
                 when (activeSet) {
-                    StateSet.FIRST_TO_SECOND -> {
+                    ConstraintSetState.FIRST_TO_SECOND -> {
                         setTransition(secondSet, thirdSet)
                         setTransitionDuration(ANIMATION_DURATION)
                         transitionToState(thirdSet)
-                        activeSet = StateSet.SECOND_TO_THIRD
+                        activeSet = ConstraintSetState.SECOND_TO_THIRD
                     }
 
-                    StateSet.SECOND_TO_FIRST -> {
+                    ConstraintSetState.SECOND_TO_FIRST -> {
                         binding.root.transitionToStart()
 
                         val constraintSet = getConstraintSet(firstSet)
@@ -70,11 +70,11 @@ class MusicBandListActivity : AppCompatActivity() {
                         constraintSet.applyTo(this)
                     }
 
-                    StateSet.THIRD_TO_SECOND -> {
+                    ConstraintSetState.THIRD_TO_SECOND -> {
                         setTransition(secondSet, firstSet)
                         setTransitionDuration(ANIMATION_DURATION)
                         transitionToState(firstSet)
-                        activeSet = StateSet.SECOND_TO_FIRST
+                        activeSet = ConstraintSetState.SECOND_TO_FIRST
                     }
                 }
             }
@@ -83,7 +83,7 @@ class MusicBandListActivity : AppCompatActivity() {
         override fun onTransitionStarted(motionLayout: MotionLayout, startId: Int, endId: Int) {
             val isSecondSet = motionLayout.currentState == secondSet && startId == secondSet
             if (isSecondSet) {
-                activeSet = StateSet.THIRD_TO_SECOND
+                activeSet = ConstraintSetState.THIRD_TO_SECOND
             }
         }
     }
@@ -126,7 +126,7 @@ class MusicBandListActivity : AppCompatActivity() {
                 it.setTransition(firstSet, secondSet)
                 it.setTransitionDuration(ANIMATION_DURATION)
                 it.transitionToState(secondSet)
-                activeSet = StateSet.FIRST_TO_SECOND
+                activeSet = ConstraintSetState.FIRST_TO_SECOND
             }
         }
     }
