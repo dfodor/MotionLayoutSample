@@ -276,10 +276,8 @@
     </ConstraintSet>
 
     <Transition
-        android:id="@+id/first_to_second_transition"
         app:constraintSetEnd="@id/second_set"
-        app:constraintSetStart="@id/first_set"
-        app:duration="300">
+        app:constraintSetStart="@id/first_set">
 
         <KeyFrameSet>
             <KeyAttribute
@@ -292,10 +290,8 @@
     </Transition>
 
     <Transition
-        android:id="@+id/second_to_third_transition"
         app:constraintSetEnd="@id/third_set"
-        app:constraintSetStart="@id/second_set"
-        app:duration="200">
+        app:constraintSetStart="@id/second_set">
 
         <OnClick
             app:clickAction="toggle"
@@ -313,7 +309,6 @@
     </Transition>
 
     <Transition
-        android:id="@+id/third_to_fourth_transition"
         app:constraintSetEnd="@id/fourth_set"
         app:constraintSetStart="@id/third_set"
         app:duration="350"
