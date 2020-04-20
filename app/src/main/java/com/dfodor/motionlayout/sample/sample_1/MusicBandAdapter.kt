@@ -40,12 +40,12 @@ class MusicBandAdapter(
             }
         }
 
-        override fun getHeight() = view.cover.height
+        override fun getCoverHeight() = view.cover.height
         override fun getY() = view.y.toInt()
     }
 
     interface ViewHolderValues {
-        fun getHeight(): Int
+        fun getCoverHeight(): Int
         fun getY(): Int
     }
 }

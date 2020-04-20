@@ -94,7 +94,7 @@ class MusicBandListActivity : AppCompatActivity() {
         musicBandModel: MusicBandModel
     ) {
         val marginTop =
-            (vhValues.getHeight() * SCALE).toInt() - (iconSize * SCALE / 2).toInt() - margin
+            (vhValues.getCoverHeight() * SCALE).toInt() - (iconSize * SCALE / 2).toInt() - margin
 
         animatedView.also {
             var set = it.getConstraintSet(firstSet)
