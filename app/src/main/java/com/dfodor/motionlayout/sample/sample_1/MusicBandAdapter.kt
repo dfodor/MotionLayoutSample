@@ -31,21 +31,23 @@ class MusicBandAdapter(
     ) : RecyclerView.ViewHolder(view), ViewHolderValues {
 
         fun bind(item: MusicBandModel) {
-            view.cover.background = ContextCompat.getDrawable(view.context, item.drawableId)
-            view.name.text = view.context.getString(item.name)
-            view.tags.text = view.context.getString(item.tags)
+            with(view) {
+                thumbnail.background = ContextCompat.getDrawable(context, item.drawableId)
+                name.text = context.getString(item.name)
+                tags.text = context.getString(item.tags)
 
-            view.root.setOnClickListener {
-                onClick(this, item)
+                root.setOnClickListener {
+                    onClick(this@MusicBandViewHolder, item)
+                }
             }
         }
 
-        override fun getCoverHeight() = view.cover.height
+        override fun getThumbnailHeight() = view.thumbnail.height
         override fun getY() = view.y.toInt()
     }
 
     interface ViewHolderValues {
-        fun getCoverHeight(): Int
+        fun getThumbnailHeight(): Int
         fun getY(): Int
     }
 }
