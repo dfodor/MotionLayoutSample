@@ -1,4 +1,4 @@
-package com.dfodor.motionlayout.sample.sample_1
+package com.dfodor.motionlayout.sample
 
 import android.content.Context
 import android.util.AttributeSet

@@ -1,4 +1,4 @@
-package com.dfodor.motionlayout.sample.sample_1
+package com.dfodor.motionlayout.sample
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,6 @@ import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.constraintlayout.motion.widget.TransitionAdapter
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat
-import com.dfodor.motionlayout.sample.R
 import com.dfodor.motionlayout.sample.databinding.ActivityMusicBandListBinding
 
 private const val SCALE = 1.2f
@@ -44,9 +43,10 @@ class MusicBandListActivity : AppCompatActivity() {
         margin = resources.getDimensionPixelSize(R.dimen.one_grid_unit)
         scaleValue = (iconSize * SCALE / 2).toInt()
 
-        binding.recyclerView.adapter = MusicBandAdapter(getTestItems()) { vhValues, musicBand ->
-            animate(vhValues, musicBand)
-        }
+        binding.recyclerView.adapter =
+            MusicBandAdapter(TestDataHelper.getMusicBandItems()) { vhValues, musicBand ->
+                animate(vhValues, musicBand)
+            }
     }
 
     private val transitionAdapter = object : TransitionAdapter() {

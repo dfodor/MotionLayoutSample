@@ -1,12 +1,10 @@
-package com.dfodor.motionlayout.sample.sample_1
+package com.dfodor.motionlayout.sample
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.dfodor.motionlayout.sample.R
-import kotlinx.android.synthetic.main.music_band_item.view.*
+import com.dfodor.motionlayout.sample.databinding.MusicBandItemBinding
 
 class MusicBandAdapter(
     private val items: List<MusicBandModel>,
@@ -14,7 +12,7 @@ class MusicBandAdapter(
 ) : RecyclerView.Adapter<MusicBandAdapter.MusicBandViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MusicBandViewHolder {
-        LayoutInflater.from(parent.context).inflate(R.layout.music_band_item, parent, false).also {
+        MusicBandItemBinding.inflate(LayoutInflater.from(parent.context), parent, false).also {
             return MusicBandViewHolder(it, onClick)
         }
     }
@@ -26,15 +24,16 @@ class MusicBandAdapter(
     }
 
     class MusicBandViewHolder(
-        private val view: View,
+        private val binding: MusicBandItemBinding,
         private val onClick: (ViewHolderValues, MusicBandModel) -> Unit
-    ) : RecyclerView.ViewHolder(view), ViewHolderValues {
+    ) : RecyclerView.ViewHolder(binding.root), ViewHolderValues {
 
         fun bind(item: MusicBandModel) {
-            with(view) {
-                thumbnail.background = ContextCompat.getDrawable(context, item.drawableId)
-                name.text = context.getString(item.name)
-                tags.text = context.getString(item.tags)
+            with(binding) {
+                thumbnail.background =
+                    ContextCompat.getDrawable(binding.root.context, item.drawableId)
+                name.text = binding.root.context.getString(item.name)
+                tags.text = binding.root.context.getString(item.tags)
 
                 root.setOnClickListener {
                     onClick(this@MusicBandViewHolder, item)
@@ -42,8 +41,8 @@ class MusicBandAdapter(
             }
         }
 
-        override fun getThumbnailHeight() = view.thumbnail.height
-        override fun getY() = view.y.toInt()
+        override fun getThumbnailHeight() = binding.thumbnail.height
+        override fun getY() = binding.root.y.toInt()
     }
 
     interface ViewHolderValues {

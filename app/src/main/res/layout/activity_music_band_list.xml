@@ -90,7 +90,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tags" />
 
-        <com.dfodor.motionlayout.sample.sample_1.CircleCardView
+        <com.dfodor.motionlayout.sample.CircleCardView
             android:id="@+id/about_container"
             android:layout_width="0dp"
             android:layout_height="0dp"
